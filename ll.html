@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html
+<head>
+<title>Linked List</title>
+</head>
+<body>
+<h1><b><i>LINKED LIST:-</b></i></h1>
+<h2>Why there is a need of linked list?</h2>
+<p>If we declare an array of size 3. As we know that all the values of an array are stored in a continous manner, so all the three values of an array are atored in a sequential fashion.
+Then, total memory space occupied by array would is 3*4=12 bytes.</p>
+<h2>Drawbacks of using array:- </h2>
+<p>-We cannot insert more than three elements in above example beacuse only 3 spaces are allocated by 3 elements.<br>
+-In case of array, the wastage of money can occur.<br>
+-In array, we are providing fixed-size at compile time,due to which wastage of memory occurs. The solution of this problem is to use <b>linked list</b>.</p>
+<h2>What is Linked List?</h2>
+<p>A linked list is also a collection of elements, but the elements are not stored in a consecutive location. <b>or</b> linked list is a collection of the nodes in which one node is connected to another node
+and node consists of two parts i.e,one is data part and second one is the address part. </p>
+<a href=https://www.programiz.com/dsa/linked-list><img src="https://cdn.programiz.com/sites/tutorial2program/files/linked-list-concept.png"></a>
+<h2>Declaration of linked list:-</h2>
+<p>In linked ,list one is variable and the second one is pointer variable. we can declare linked list by using user- defined data type called as structure.<br>
+struct node<br>
+{<br>
+int data;<br>
+struct node*next;<br>
+}<br>
+</p>
+<h2>Types of linked list:-</h2>
+<p><b>1- Singly linked list:-</b> the singly linked list is the most common which consists of data part and address part. The address part in the node is known as a pointer. example:- suppose we have four nodes
+and addresses of the four nodes are 100,200,300,400.</p>
+<a href="https://examradar.com/single-linked-list/"><img src=https://examradar.com/wp-content/uploads/2016/10/Single-Linked-List.png></a>
+<p>NULL means its address part does not point to any node. the pointer that holds the address of the initial node is known as a head pointer. </p>
+<p><b>2-Doubly linked list:</b>As name suggests, the doubly linked list contains two pointers. We define it in three parts the data part and the two address part. </p>
+<a href=https://examradar.com/double-linked-list/><img src="https://examradar.com/wp-content/uploads/2016/10/Double-Linked-List.png"></a>
+<p><b>Representation of doubly linked list:-</b><br>
+struct node<br>
+{<br>
+int data;<br>
+struct mode*next;<br>
+struct node*prev;<br>
+}<br>
+</p>
+<p><b>3- Circular linked list:-</b> A circular linked list is a variation of a singly linked list the only difference is "last node does not point to any node in a singly linked list".</p>
+<a href=https://www.javatpoint.com/circular-singly-linked-list><img src="https://static.javatpoint.com/ds/images/circular-singly-linked-list.png"></a>
+<p><b>Representation of circular linked list:-</b><br>
+struct node<br>
+{<br>
+int data;<br>
+struct node*next;<br>
+}<br>
+</p>
+<p><b>4-Doubly circular linked list:-</b>The doubly circular linked list has the features of both the circular linked list and doubly linked list.</p>
+<a href=https://iq.opengenus.org/circular-doubly-linked-list/><img src="https://iq.opengenus.org/content/images/2022/01/i6.png"></a>
+<p>The last node is attached to the first node and thus creates a circle. The main difference is that doubly circular linked list does not contain NULL value in previous field of the node.</p>
+<p><b>Representation of doubly linked list:-</b><br>
+struct node<br>
+{<br>
+int data<br>
+struct node*next;<br>
+struct node*prev;<br>
+</p>
+<h2>Complexity:-</h2>
+<table border="1">
+<tr>
+<th>Singly linked list</th>
+<th><td><b>Average</b></th><br>
+Acess-Q(n) search-Q(n) insertion-Q(1)  deletion-Q(1)  <br> </td>
+<th><td><b>Space complexity</b></th><br>Worst<br>O(n)</td>
+</tr>
+<tr>
+<th>Singly linked list</th>
+<th><td><b>Worst</b><br></th>Access-O(n) Search-O(n) Insertion-O(1) Deletion- O(1)</td>
+<td></td>
+</tr>
+</table>
+
+<h2>Operations on singly linked list:-</h2>
+
+<p><b>1-Node creation:-<br></b>
+<p>struct node<br>
+{<br>
+int data;<br>
+struct node*next;<br>
+};<br>
+struct node*head,*ptr;<br>
+ptr=(struct node*)malloc(size of (struct node*))</p>
+
+<p><b>2-Insertion:-</b><br>
+1-Insertion at beginning:- It involves inserting any
+
+element at the front of the list. We just need a few link adjustment to make new node as head of list.<br> 2. Insertion at end of list:- The new node can be inserted as the only node in the list / it can be inserted as last one.<br>
+
+3-Insertion after specified node :- We need to skip desired number of nodes in order to reach node after which the new node will be inserted.</p>
+
+<p><b>3-Deletion and Traversing:-<br></b>
+1.Deletion at beginning:-It just needs few adjustments in the node pointers.<br>
+2-Deletion at end of list :- The list can either be empty or full. Different logic is implemented for different scenario's.<br>
+Traversing :- In traversing, we simply visit each node & the list at least once in order to perform some specific operation in it, for example, printing data part of each node present in the list. <br>
+Searching :- In searching, we match each element of the list with the given element.If the element is found on any of the location of that element is returned otherwise null is returned.
+</p>
+
+<h2>Operations on doubly linked list</h2>
+
+<p><b>1-Node creation:-<br></b>
+struct node<br>
+{<br>
+struct node*prev;<br>
+int data;<br>
+struct node*next;;<br>
+};<br>
+struct node*head;<br>
+</p>
+
+<p><b>2-Insertion:-</b><br>
+1-Insertion at the beginning:-Adding the node into the liked list at the beginning.<br>
+2-Insertion at end:- Adding the node into the linked list to the end.</p>
+
+<p><b>3-Deletion and traversing:-</b><br>
+1-Deletion at beginning :- Removing the node from beginning of the list.<br>
+2-Deletion at end :- Removing the node from end of the list.<br> 
+Traversing :-Visting each node of the list at least once in order to perform some specific operation like searching, sorting, display etc.<br>
+Searching:-Compilining each node data with the item to be searched and return location of the item in the list if the item found else return null.<br></p>
+
+<h2>Skip list</h2>
+
+<p><b>What is a skip list?</b><br>
+
+A skip list is a probalistic data structure.The skip list is used to store a linked list of elements or data with a inked list. In one single step, it skips several elements of the entire list which is why it is known as skip list.</p>
+
+<p><b>Structure of skip list:-</b><br> 
+Skip list is built in two layers: The lowest layer & and the top layer. The lowest layer of the skip list is a common sorted linked list, and the top layers of the skip list are the like an "express line where elements are skipped.</p>
+
+<h2>Complexity table:-</h2>
+<table border="1">
+<tr>
+<th>Sr.No</th>
+<th>Complexity</th>
+<th>Average case</th>
+<th>Worst case</th>
+</tr>
+<tr>
+<td>1-<br>2-<br>3-<br>4-<br>5-<br></td>
+<td>Access complexity<br>Search complexity<br> Delete complexity<br> Insert complexity<br> Space complexity<br></td>
+<td>O(log n)<br>O(log n)<br>O(log n)<br>O(log n)<br> -<br></td>
+<td>O(n)<br>O(n)<br>O(n)<br>O(n)<br>O(n log n)</td></tr></table>
+
+<p><b>Basic operations and its algorithms:-</b><br>
+1-Insertion operation:- It is used to add new node to particular location in a specific situation.<br>
+2-Deletion operation:- It is used to delete a node in a soecific situation.<br>
+3-Search operation:- The search operation is used to search a particular node in a skip list.<br>
+</p>
+
+<p><b>Algorithm of insertion operation:-<br></b>
+Insertion (L,Key)<br>
+local update[0---- mean -level+1]<br>
+a=L-->header<br>
+for i=L --> level down to a do<br>
+while a--> Forward[i]-->Key forward[i]<br>
+update [i]=a<br>
+</p>
+
+
+
+
+
+</body>
+</html>

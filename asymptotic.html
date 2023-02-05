@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ASYMPTOTIC ANALYSIS</title>
+    </head>
+    <body>
+        <h1><b>What is Asymptotic Analysis?</b></h1>
+           <p>The time required by an algorithm comes under three types:<br><br>
+             1. <b><u>Worst case</u></b> : It defines the input for which the algorithm takes a huge time.<br>
+             2. <b><u>Average case</u></b> : It tales avreage time for the program execution.<br>
+             3. <b><u>Best case</u></b> : It defines the input for which the algorithm takes the lowest time. 
+            </p>
+
+        <h1>Asymptotic Notations :</h1>    
+            <p>The commonly used asymptotic notations used for calculating the running time<br> complexity of an algorithm is given below:
+            </p> 
+        <h2><b>1. Big oh notation (o)</b>:</h2>  
+          <p>-> This measures the performance of an algorithm by simply providing the order <br>of growth of the function.<br>
+           ->  This notation provides on upper bound on a function which ensures that function<br> never grows faster than the upper bound. </p>
+           <img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-2.png">
+           <p><b><u>Example</u></b>: If f(n) and g(n) one two functions defined for positive integer,<br>
+               then <b>f(n) = o g(n) is big oh of g(n)</b> or f(n) is on order of g(n) if there exists contants cand no such that:<br>
+               <b>f(n) <= c.g(n) for all n>=n<sub>o</sub></b> 
+            </p>
+        <h2><b>2. Theta Notation (θ) </b></h2>        
+            <p>-> The theta notation mainly describes average case scenarias.<br>
+                -> It represents reallistic time complexity of an algorithm.<br>
+                -> Big theta is mainly used when the value of worst case and best case is same.</p>
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220822015828/thetanotation.png">
+                <p><b><u>Example</u></b> : let f(n) and g(n) be functions of n where n is steps required to execute program<br>
+                  <b>f(n) = θ g(n)</b><br>
+                  The above condition is satisfied only if when: <br>
+                    <b>c1.g(n) <= f(n) <= c2.g(n)</b>
+                </p>
+        <h2><b>3. Omega Notation ( Ω )</b></h2>   
+            <p>-> It basically describes best-case scenario which is opposite to big-o-notation.<br>
+               -> It is formal way to represent lower bound to an algorithm's running time.<br>
+               -> It measures the best amount of time.An algorithm can possibly take to complete or best case time complexity.</p>    
+               <img src="https://media.geeksforgeeks.org/wp-content/uploads/AlgoAnalysis-3.png">
+               <p><b><u>Example</u></b> : If f(n) and g(n) are two functions defined for positive integers,<br>
+                  then <b>f(n) = Ω g(n)</b> as f(n) is omega of g(n) or f(n) is the order of g(n) if there exists constant c and no such that<br>
+                  <b> f(n) >= c.g(n)</b> for all n>=n<sub>o</sub> and c>0 </p>
+    </body>
+</html>
+	
+
