@@ -129,37 +129,114 @@ A skip list is a probalistic data structure.The skip list is used to store a lin
 <p><b>Structure of skip list:-</b><br> 
 Skip list is built in two layers: The lowest layer & and the top layer. The lowest layer of the skip list is a common sorted linked list, and the top layers of the skip list are the like an "express line where elements are skipped.</p>
 
-<h2>Complexity table:-</h2>
-<table border="1">
-<tr>
-<th>Sr.No</th>
-<th>Complexity</th>
-<th>Average case</th>
-<th>Worst case</th>
-</tr>
-<tr>
-<td>1-<br>2-<br>3-<br>4-<br>5-<br></td>
-<td>Access complexity<br>Search complexity<br> Delete complexity<br> Insert complexity<br> Space complexity<br></td>
-<td>O(log n)<br>O(log n)<br>O(log n)<br>O(log n)<br> -<br></td>
-<td>O(n)<br>O(n)<br>O(n)<br>O(n)<br>O(n log n)</td></tr></table>
+ <h3>Complexity table</h3>
+        <table border>
+            <tr>
+                <th>S.no</th>
+                <th>Complexity</th>
+                <th>Average Case</th>
+                <th>Worst Case</th>           
+             </tr>
+             <tr>
+                <th>1</th>
+                <th>Access Complexity</th>
+                <th>o(log n)</th>
+                <th>o(n)</th>
+             </tr>
+             <tr>
+                <th>2</th>
+                <th>Search Complexity</th>
+                <th>o(log n)</th>
+                <th>o(n)</th>
+             </tr>
+             <tr>
+                <th>3</th>
+                <th>Delete Complexity</th>
+                <th>o(log n)</th>
+                <th>o(n)</th>
+             </tr> 
+             <tr>
+                <th>4</th>
+                <th>Insert Complexity</th>
+                <th>o(log n)</th>
+                <th>o(n)</th>
+             </tr>
+             <tr>
+                <th>5</th>
+                <th>Space Complexity</th>
+                <th>-</th>
+                <th>o(nlogn)</th>
+             </tr>
+        </table>
+        <h2>Basic operations and its algorithms :- </h2>
+         <p> <b><u>Insertion operation </u></b>:- It is used to add new node a particular location in a specific situation.<br>
+           <b><u>Deletion operation</u></b> :- It is used to delete a node in a specific situation. <br>
+            <b><u>search operation</u></b> :-  The search operation is used to search a particular node in a skip list.
+         </p>
+        <h2>Algorithm of insertion operation :- </h2>
+        <p>Insertion (L, key)<br>
+            local update [0...max-level+1]<br>
+            a = L -> header<br>
+            for i = L -> level down to a<br>
+            while a -> forward [i]→ key forward [i]<br>
+            update[i]=a<br>
+            a = a + forward[a]<br>
+            |V| = random-level() <br>
+            if |V| > L -> level then<br>
+            fOR i = L -> Level + 1 to |V| do <br>
+            update [i]=L -> header<br>
+            L -> level = |V|<br>
+            a = make node (|V|, key, value)<br>
+            for i = 0 to level do <br>
+            a → Forward [i] = update[i] -> forward (i)<br>
+            update [i] -> forward [i]= a<br>
+        </p>
+        <h2>Algorithm of deletion operation :-</h2>
+        <p>Deletion (L, key)<br>
+         local update (o... max-level + 1] <br>
+         a = L+ header<br>
+         for i=L -> level downs 0 to a<sub>o</sub><br>
+         while a -> forward [i] → key forward [i]<br>
+         update [i]=a<br>
+         a = a -> forward [0]<br>
+         if a -> key = key then<br>
+         for i=0 to L -> level do<br>
+         if update [i] -> forward [i] & a then break <br>
+         update [i] ->  forward [i] → forward [i]<br>
+         free (a)<br>
+         while L -> level > 0 and 1 ->header ->Forword[L-> level] = NIL do<br>
+         L -> level = L -> level-1<br>
+        </p>
+        <h2>Algorithm of searching operation :-</h2>
+        <p>Searching (L, SKey)  <br>
+            a = L → header  <br>
+            loop invariant: a → key level down to 0 do. <br>
+                 while a → forward[i] → key forward[i]  <br>
+            a = a → forward[0]  <br>
+           if a → key = SKey then return a → value  <br>
+           else return failure  </p>
+           <p><b>Example 1</b>: Create a skip list, we want to insert these following keys in the empty skip list<br>
+            1. 6 with level 1.<br>
+            2. 29 with level 1.<br>
+            3. 22 with level 4.<br>
+            4. 9 with level 3.<br>
+            5. 17 with level 1.<br>
+            6. 4 with level 2.<br><br>
+            Ans:   <br> <b>Step 1</b>: Insert 6 with level 1<br>
+          <img src="https://static.javatpoint.com/ds/images/skip-list-in-data-structure2.png"><br>
+                 <b>Step 2</b>: Insert 29 with level 1<br>
+          <img src="https://static.javatpoint.com/ds/images/skip-list-in-data-structure3.png"><br>
+                 <b>Step 3</b>: Insert 22 with level 4<br>
+          <img src="https://static.javatpoint.com/ds/images/skip-list-in-data-structure4.png"><br>
+                 <b>Step 4</b>: Insert 9 with level 3<br>
+          <img src="https://static.javatpoint.com/ds/images/skip-list-in-data-structure5.png"><br>
+                 <b>Step 5</b>: Insert 17 with level 1<br>
+          <img src="https://static.javatpoint.com/ds/images/skip-list-in-data-structure6.png"><br>
+                 <b>Step 6</b>: Insert 4 with level 2<br>
+          <img src="https://static.javatpoint.com/ds/images/skip-list-in-data-structure7.png"><br>
+        </p>
 
-<p><b>Basic operations and its algorithms:-</b><br>
-1-Insertion operation:- It is used to add new node to particular location in a specific situation.<br>
-2-Deletion operation:- It is used to delete a node in a soecific situation.<br>
-3-Search operation:- The search operation is used to search a particular node in a skip list.<br>
-</p>
-
-<p><b>Algorithm of insertion operation:-<br></b>
-Insertion (L,Key)<br>
-local update[0---- mean -level+1]<br>
-a=L-->header<br>
-for i=L --> level down to a do<br>
-while a--> Forward[i]-->Key forward[i]<br>
-update [i]=a<br>
-</p>
-
-
-
+<a href="stack.html">next-></a>
 
 
 </body>
