@@ -129,6 +129,7 @@ A skip list is a probalistic data structure.The skip list is used to store a lin
 <p><b>Structure of skip list:-</b><br> 
 Skip list is built in two layers: The lowest layer & and the top layer. The lowest layer of the skip list is a common sorted linked list, and the top layers of the skip list are the like an "express line where elements are skipped.</p>
 
+<<<<<<< HEAD
  <h3>Complexity table</h3>
         <table border>
             <tr>
@@ -235,6 +236,40 @@ Skip list is built in two layers: The lowest layer & and the top layer. The lowe
                  <b>Step 6</b>: Insert 4 with level 2<br>
           <img src="https://static.javatpoint.com/ds/images/skip-list-in-data-structure7.png"><br>
         </p>
+=======
+<h2>Complexity table:-</h2>
+<table border="1">
+<tr>
+<th>Sr.No</th>
+<th>Complexity</th>
+<th>Average case</th>
+<th>Worst case</th>
+</tr>
+<tr>
+<td>1-<br>2-<br>3-<br>4-<br>5-<br></td>
+<td>Access complexity<br>Search complexity<br> Delete complexity<br> Insert complexity<br> Space complexity<br></td>
+<td>O(log n)<br>O(log n)<br>O(log n)<br>O(log n)<br> -<br></td>
+<td>O(n)<br>O(n)<br>O(n)<br>O(n)<br>O(n log n)</td></tr></table>
+
+<p><b>Basic operations and its algorithms:-</b><br>
+1-Insertion operation:- It is used to add new node to particular location in a specific situation.<br>
+2-Deletion operation:- It is used to delete a node in a soecific situation.<br>
+3-Search operation:- The search operation is used to search a particular node in a skip list.<br>
+</p>
+
+<p><b>Algorithm of insertion operation:-<br></b>
+Insertion (L,Key)<br>
+local update[0---- mean -level+1]<br>
+a=L-->header<br>
+for i=L --> level down to a do<br>
+while a--> Forward[i]-->Key forward[i]<br>
+update [i]=a<br>
+  
+
+</p>
+
+<a href="https://gungungupta7525.github.io/Data-structure/pointer.html" style="font-size:30;"> NEXT</a>
+>>>>>>> e6273c939b0f7f3f7a4ef4ea69a20940ca9af369
 
 <a href="stack.html">next-></a>
 
