@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+<title>Implementation of tree</title></head>
+<body>
+<h2>Implementation of tree</h2>
+<p>The tree data structure can be created by creating the nodes dynamically with the help of the pointers. The tree in the memory can be represented as shown below:</p>
+<img src="https://techvidvan.com/tutorials/wp-content/uploads/sites/2/2021/07/Binary-Trees-in-C-normal-image02.jpg">
+<p>The above figure shows the representation of the tree data structure in the memory. In the above structure, the node contains three fields. The second field stores the data; the first field stores the address of the left child, and the third field stores the address of the right child.</p>
+<p>
+In programming, the structure of a node can be defined as:</p>
+<br>
+<br>
+<p  style="background-color:violet;">
+    struct node  <br>
+    {  <br>
+      int data; <br> 
+    struct node *left;<br>  
+    struct node *right;<br>   
+    }  
+</p>
+<p>The above structure can only be defined for the binary trees because the binary tree can have utmost two children, and generic trees can have more than two children. The structure of the node for generic trees would be different as compared to the binary tree.</p>
+<br>
+<h3>Applications of trees</h3>
+<p>
+   <b> Storing naturally hierarchical data:</b> Trees are used to store the data in the hierarchical structure. For example, the file system. The file system stored on the disc drive, the file and folder are in the form of the naturally hierarchical data and stored in the form of trees.
+   <br> 
+   <br><b>Organize data:</b> It is used to organize data for efficient insertion, deletion and searching. For example, a binary tree has a logN time for searching an element.
+   <br>
+   <br> <b>Trie:</b> It is a special kind of tree that is used to store the dictionary. It is a fast and efficient way for dynamic spell checking.
+   <br>
+   <br><b> Heap:</b> It is also a tree data structure implemented using arrays. It is used to implement priority queues.
+   <br>
+   <br><b>B-Tree and B+Tree:</b> B-Tree and B+Tree are the tree data structures used to implement indexing in databases.
+    <br>
+    <br><b>Routing table:</b> The tree data structure is also used to store the data in routing tables in the routers.
+</p>
+<br>
+<h3>Types of Tree data structure</h3>
+<p><b>General tree:</b> The general tree is one of the types of tree data structure. In the general tree, a node can have either 0 or maximum n number of nodes. There is no restriction imposed on the degree of the node (the number of nodes that a node can contain). The topmost node in a general tree is known as a root node. The children of the parent node are known as subtrees.<br><br>
+<b>Binary tree:</b>. Here, binary name itself suggests two numbers, i.e., 0 and 1. In a binary tree, each node in a tree can have utmost two child nodes. Here, utmost means whether the node has 0 nodes, 1 node or 2 nodes.
+<br><br>
+<b>Binary search tree:-</b>Binary search tree is a non-linear data structure in which one node is connected to n number of nodes. It is a node-based data structure. A node can be represented in a binary search tree with three fields, i.e., data part, left-child, and right-child. A node can be connected to the utmost two child nodes in a binary search tree, so the node contains two pointers (left child and right child pointer).
+Every node in the left subtree must contain a value less than the value of the root node, and the value of each node in the right subtree must be bigger than the value of the root node.</p><br>
+<p  style="background-color:violet;">   struct node <br> 
+    {  <br>
+        int data;<br>  
+        struct node *left;<br>  
+    struct node *right;   <br>
+    }  <br>
+    </p>
+<p>
+The above is the node structure with three fields: data field, the second field is the left pointer of the node type, and the third field is the right pointer of the node type.</p>
+
+
+</body>
