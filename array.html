@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>array </title>
+</head>
+<body>
+	
+         <h2>Array:-</h2>
+         <p>Arrays are defined as collection of similar type of data items stored at contigous memory locations.</p>
+         <p>Array is the simplest data structure where each data element can be randomly accessed by using its index number.</p>
+         
+        <h3>Array declaration-</h3>
+        <code>int arr [10]; char arr [10]; float air [s]</code>
+         
+         <h3>Program without Array :-</h3>
+        <code><pre>
+            void main ()
+            {
+            int marks_1 = 56, marks_2=78, marks_3=89;
+            float avg = (marks_1 + marks_2 + murks_3)/3;
+            printf (arg);
+            }
+        </code></pre>
+        <h3>Program by using Array :-</h3>
+         <code><pre>
+            void main()
+            {
+            int marks[3] = { 56, 78, 29};
+            int i;
+            float arg;
+            for (i=0;i<3;i++){
+                arg= arg + marks [i]; 
+            }
+            printf (arg);
+        }
+         </pre></code>
+         <h3>Complexity of Array operations :-</h3>
+         <h5>1.Time complexity -</h5>
+         <table>
+            <tr>
+                <th>Algorithm</th>
+                <th>Average case</th>
+                <th>Worst case</th>
+            </tr>
+            <tr>
+                 <td>Access</td>
+                 <td>O(1)</td>
+                 <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>Search</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Insertion</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+            <tr>
+                <td>Deletion</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+         </table>
+         <h5>2.Space complexity -</h5>
+         <p>In Array space complexity for worst case is O(n).</p>
+         <p><b>Memory Allocation</b> of the Array :-</p>
+         <p>Each element in Array represented by indexing.Indexing of array can be defined in three ways: </p>
+           <p> 1. 0 (zero Based indexing) :- The first element of the will be arr [0].</p>
+           <p> 2. 1 (one-based indexing)  :- The first element of array will be an [1]</p>
+           <p> 3. n ( n-based indexing) :- The first element of array can reside at any random îndex number.</p>
+            <br>
+            <span class="box">_arr[0] </span><span class="box">_arr[1] </span><span class="box">_arr[2]  </span><span class="box">_arr[3]  </span><span class="box">_arr[4] </span>
+             <p>     (fig: Int arr [5])</p>
+           
+           <h3><b>Accessing elements </b>of an Array :-</h3> 
+           <p> To access any random element of on array we need the following information:</p>
+           <p>1. Base address of the array,</p>
+           <p>2. size of an element in bytes.</p>
+           <p>3. which type of indexing, array follows.</p>
+           
+          <p> Address of any element of 1D orray can be calculate</p>
+           
+          <p>Byte address of element A[i] = base address +size*(first-index)</p>
+           <p>Example: In an array, A[-10.... +2] Base address (BA)=999, size of an element = 2 bytes, find location of A[-1].</p>
+           <output>
+            <b>Solution:</b> 
+            <br>L(A[-1]) = 999 + [(-1)-(-10)] x2<br>
+                               = 999 +18<br>
+                               location of A[-1] = 1017.
+           </output>
+          <h3>Passing array to the function:-</h3>
+          <p>  The name of the array represents the starting address or the address of the first element of the array.</p>
+           
+           <h3>Program</h3>
+           <code><pre>
+            int summation (int []);
+            void main()
+           {
+            int arr[5] = {0,1,2,3.4};
+            int sum = summation (arr);
+            printf ("%d", sum);
+           }
+           int summation(int arr[]){
+            int sum=0,i;
+            for(i=0;i<5;i++){
+                sum=sum+arr[i];
+            }
+            return sum;
+           }
+           </pre></code>
+          
+           <h2>2D Array -</h2>
+           <p> 2D array can be defined as an array of arrays. The 2D array is organized as matrices which can be represented as collection of rows and coloumns.</p>
+
+            <h3 >How to declare 2D Array:-</h3>
+            <p>The syntax for declaration of two dimensions array is as follows:</p>
+            <code>int arr [max-rows] [max-columns];</code>
+            <p>However, it produces the data structure which looks like following: </p>
+            <img class="image" src="https://static.javatpoint.com/ds/images/ds-2d-array.png">
+             <h3 id="access">How to access data in 2D-array :-</h3>
+               <p>Due to fact that elements of 2D arrays can be random accessed.</p>
+               <code>int x=a[i][j];</code>
+               <p>where i, j are the rows and coloumns respectively.</p>
+               <h3 id="initialising">Initializing 2D arrays :-</h3>
+                <p>The Syntax to declare and initialize the 2D array is given as follows:</p>
+                <p>int arr[2][2] = {0,1,2,3};</p>
+                <p>Number of elements in 2D arrays = number of rows * number of coloumns.</p>
+              <h3 id="mapping">Mapping 2D array to 1D array :-</h3>
+              <p> The size of a two dimensional array is equal to the multiplication of number of rows and number of coloumns present in the array. </p>
+              <p>A 3x3 two dimensional array is a shown-</p>
+              <img class="image" src="https://static.javatpoint.com/ds/images/ds-2d-array2.png">
+               <br>
+               <p>There are two main techniques of storing 2D array elements into memory.</p>
+                <p>1. Row major ordering :-</p>
+                <p> In row major ordering, all the rows of 2D array are stored into memory contiguously. </p>
+                  <img class="img1" src="https://static.javatpoint.com/ds/images/ds-2d-array-row-major-ordering2.png">
+                <p>2.Column major ordering :</p>
+                <p> According to column mejor ordering, all the coloumns of 2D aray are stored into the memory contiguously.</p>
+                   <img class="img1" src="https://static.javatpoint.com/ds/images/ds-2d-array-column-major-ordering2.png">
+                    <h3 id="address">Calculating address of random element of a 2D array:-</h3>
+                    <p> 1). By row major order :- If array is declared a[m][n] where m is the number of rows while n is number of cloumns then address of an element a[i][j] is calculated as, 
+                        </p>
+                        <p>Address (a[i][j]) = B. A + (i*n+j) *size.</p>
+                        <p>BA Base Address.</p>
+                        <p>  2). By coloumn major order :-</p>
+                        <p>Address (a[i][j] = (j*m) +i)* size+BA</p>
+                        <p>BA Base Address.</p>
+		  
+
+   
+		  <a href="https://gungungupta7525.github.io/Data-structure/pointer.html" style="font-size:40;"> NEXT</a>
+</body>
+</html>
+

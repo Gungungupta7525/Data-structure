@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<head>
+<title>BST</title>
+<body>
+<h1>Binary Search Tree</h1>
+<p>A binary search tree follows some order to arrange the elements. In a Binary search tree, the value of left node must be smaller than the parent node, and the value of right node must be greater than the parent node. This rule is applied recursively to the left and right subtrees of the root</p>
+<img src="https://teachics.org/wp-content/uploads/2021/09/BINARY-SEARCH-TREE-BST.png">
+<p>In the above figure, we can observe that the root node is 40, and all the nodes of the left subtree are smaller than the root node, and all the nodes of the right subtree are greater than the root node.
+
+Similarly, we can see the left child of root node is greater than its left child and smaller than its right child. So, it also satisfies the property of binary search tree. Therefore, we can say that the tree in the above image is a binary search tree.
+</p>
+
+
+<h3>Advantages of Binary search tree</h3>
+
+<p>    Searching an element in the Binary search tree is easy as we always have a hint that which subtree has the desired element.
+    As compared to array and linked lists, insertion and deletion operations are faster in BST.</p>
+   <h3> Algorithm to search an element in Binary search tree</h3>
+
+  <p  style="background-color:#f3daff;">Search (root, item)  <br>
+    Step 1 - if (item = root → data) or (root = NULL)  <br>
+    return root  <br>
+    else if (item < root → data)  <br>
+    return Search(root → left, item)  <br>
+    else  <br>
+    return Search(root → right, item)  <br>
+    END if  <br>
+    Step 2 - END <br> 
+
+</p>
+
+
+<h3>Deletion in Binary Search tree</h3>
+
+<p>
+In a binary search tree, we must delete a node from the tree by keeping in mind that the property of BST is not violated. To delete a node from BST, there are three possible situations occur -
+
+    The node to be deleted is the leaf node, or,
+    The node to be deleted has only one child, and,
+    The node to be deleted has two children
+
+We will understand the situations listed above in detail.
+
+When the node to be deleted is the leaf node
+
+It is the simplest case to delete a node in BST. Here, we have to replace the leaf node with NULL and simply free the allocated space
+</p>
+<h3>When the node to be deleted has only one child</h3>
+<p>
+In this case, we have to replace the target node with its child, and then delete the child node. It means that after replacing the target node with its child node, the child node will now contain the value to be deleted. So, we simply have to replace the child node with NULL and free up the allocated space.</p>
+
+<h3>When the node to be deleted has two children</h3>
+<p>
+This case of deleting a node in BST is a bit complex among other two cases. In such a case, the steps to be followed are listed as follows -
+
+    First, find the inorder successor of the node to be deleted.
+    After that, replace that node with the inorder successor until the target node is placed at the leaf of tree.
+    And at last, replace the node with NULL and free up the allocated space.
+
+The inorder successor is required when the right child of the node is not empty. We can obtain the inorder successor by finding the minimum element in the right child of the node.</p>
+
+
+<h3>Insertion in Binary Search tree</h3>
+<p>
+A new key in BST is always inserted at the leaf. To insert an element in BST, we have to start searching from the root node; if the node to be inserted is less than the root node, then search for an empty location in the left subtree. Else, search for the empty location in the right subtree and insert the data. Insert in BST is similar to searching, as we always have to maintain the rule that the left subtree is smaller than the root, and right subtree is larger than the root.</p>
+<h3>The complexity of the Binary Search tree</h3><p>
+
+Let's see the time and space complexity of the Binary search tree. We will see the time complexity for insertion, deletion, and searching operations in best case, average case, and worst case.</p>
+
+<h3>Complexity table</h3>
+        <table border  style="background-color:#f3daff; width: 60%; height: 70px;">
+            <tr>
+                <th>Operations</th>
+                <th>Best case time complexity</th>
+                <th>Average Case</th>
+                <th>Worst Case</th>           
+             </tr>
+             <tr>
+               
+                <th>Insertion</th>
+                <th>o(log n)</th>
+                <th>o(log n)</th>
+                 <th>o(n)</th>
+             </tr>
+             <tr>
+               
+                <th>Deletion</th>
+                <th>o(log n)</th>
+                 <th>o(log n)</th>
+                <th>o(n)</th>
+             </tr>
+             <tr>
+              
+                <th>Search</th>
+                <th>o(log n)</th>
+                 <th>o(log n)</th>
+                <th>o(n)</th>
+             </tr> 
+             
+        </table>
+
+<h3>Space Complexity</h3>
+ <table border  style="background-color:#f3daff; width: 60%; height: 70px;">
+            <tr>
+                <th>Operations</th>
+                <th>Space time complexity</th>
+                          
+             </tr>
+          
+               
+                <th>Insertion</th>
+              
+                 <th>o(n)</th>
+             </tr>
+             <tr>
+               
+                <th>Deletion</th>
+               
+                <th>o(n)</th>
+             </tr>
+             <tr>
+              
+                <th>Search</th>
+               
+                <th>o(n)</th>
+             </tr> 
+             
+        </table>
+
+     
+
+<h3>Implementation of Binary search tree</h3>
+<p>
+Now, let's see the program to implement the operations of Binary Search tree.
+
+Program: Write a program to perform operations of Binary Search tree in C++.
+
+In this program, we will see the implementation of the operations of binary search tree. Here, we will see the creation, inorder traversal, insertion, and deletion operations of tree.
+
+Here, we will see the inorder traversal of the tree to check whether the nodes of the tree are in their proper location or not. We know that the inorder traversal always gives us the data in ascending order. So, after performing the insertion and deletion operations, we perform the inorder traversal, and after traversing, if we get data in ascending order, then it is clear that the nodes are in their proper location.
+</p>
+   <p  style="background-color:#f3daff;"> #include <iostream><br>  
+    using namespace std;  <br>
+    struct Node {  <br>
+        int data;  <br>
+        Node *left;  <br>
+        Node *right;  <br>
+    };  <br>
+    Node* create(int item)  <br>
+    {  <br>
+        Node* node = new Node;  <br>
+        node->data = item;  <br>
+        node->left = node->right = NULL;<br>  
+        return node;  <br>
+    }  <br>
+    /*Inorder traversal of the tree formed*/<br>  
+    void inorder(Node *root)  <br>
+    {  <br>
+        if (root == NULL)  <br>
+            return;  <br>
+        inorder(root->left); //traverse left subtree <br> 
+        cout<< root->data << "   "; //traverse root node  <br>
+        inorder(root->right); //traverse right subtree  <br>
+    }  <br>
+    Node* findMinimum(Node* cur) /*To find the inorder successor*/  <br>
+    {  <br>
+        while(cur->left != NULL) {  <br>
+            cur = cur->left;  <br>
+        }  <br>
+        return cur;  <br>
+    }  <br>
+    Node* insertion(Node* root, int item) /*Insert a node*/  <br>
+    {  <br>
+        if (root == NULL)  <br>
+            return create(item); /*return new node if tree is empty*/  <br>
+        if (item < root->data)  <br>
+            root->left = insertion(root->left, item);  <br>
+        else  <br>
+            root->right = insertion(root->right, item);  <br>
+        return root;  <br>
+    }  <br>
+    void search(Node* &cur, int item, Node* &parent)  <br>
+    {  <br>
+        while (cur != NULL && cur->data != item)  <br>
+        {  <br>
+            parent = cur;  <br>
+            if (item < cur->data)  <br>
+                cur = cur->left;  <br>
+            else  <br>
+                cur = cur->right;  <br>
+        }  <br>
+    }  <br>
+    void deletion(Node*& root, int item) /*function to delete a node*/  <br>
+    {  <br>
+        Node* parent = NULL;  <br>
+        Node* cur = root;  <br>
+        search(cur, item, parent); /*find the node to be deleted*/  <br>
+        if (cur == NULL)  <br>
+            return;  <br>
+        if (cur->left == NULL && cur->right == NULL) /*When node has no children*/ <br> 
+        {  <br>
+            if (cur != root)  <br>
+            {  <br>
+                if (parent->left == cur)  <br>
+                    parent->left = NULL;<br>  
+                else  <br>
+                    parent->right = NULL;  <br>
+            }  <br>
+            else  <br>
+                root = NULL;  <br>
+            free(cur);       <br>
+        }  <br>
+        else if (cur->left && cur->right)  <br>
+        {  <br>
+            Node* succ  = findMinimum(cur->right);  <br>
+            int val = succ->data;  <br>
+            deletion(root, succ->data);<br>  
+            cur->data = val;  <br>
+        }  <br>
+        else  <br>
+        {  <br>
+            Node* child = (cur->left)? cur->left: cur->right;  <br>
+            if (cur != root)  <br>
+            {  <br>
+                if (cur == parent->left)  <br>
+                    parent->left = child;<br>  
+                else  <br>
+                    parent->right = child;  <br>
+            }  <br>
+            else  <br>
+                root = child;  <br>
+            free(cur);  <br>
+        }  <br>
+    }  <br>
+    int main()  <br>
+    {  <br>
+      Node* root = NULL;  <br>
+      root = insertion(root, 45);<br>
+        
+      root = insertion(root, 30); <br> 
+      root = insertion(root, 50);  <br>
+      root = insertion(root, 25);  <br>
+      root = insertion(root, 35);  <br>
+      root = insertion(root, 45);  <br>
+      root = insertion(root, 60);  <br>
+      root = insertion(root, 4);  <br>
+      printf("The inorder traversal of the given binary tree is - \n");  <br>
+      inorder(root);  <br>
+      deletion(root, 25);  <br>                                                                 
+      printf("\nAfter deleting node 25, the inorder traversal of the given binary tree is - \n"); <br> 
+      inorder(root);   <br>
+      insertion(root, 2);  <br>
+      printf("\nAfter inserting node 2, the inorder traversal of the given binary tree is - \n");  <br>
+      inorder(root);  <br>
+      return 0;  <br>
+    }  <br>
+    <p>After execution of code the output will be:</p>
+<img src="https://static.javatpoint.com/ds/images/binary-search-tree20.png">
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+

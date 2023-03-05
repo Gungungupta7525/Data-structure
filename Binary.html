@@ -1,0 +1,169 @@
+<!Doctype html>
+<head>
+<title>Binary tree</title>
+
+</head>
+<body>
+<h2>Binary Tree</h2>
+<p>The Binary tree means that the node can have maximum two children. Here, binary name itself suggests that 'two'; therefore, each node can have either 0, 1 or 2 children.
+
+Let's understand the binary tree through an example.
+Binary Tree</p>
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/full-binary-tree_0.png">
+<p>The above tree is a binary tree because each node contains the utmost two children. The logical representation of the above tree is given below:</p>
+<img src="https://static.javatpoint.com/ds/images/binary-tree2.png">
+<p> the above tree, node 1 contains two pointers, i.e., left and a right pointer pointing to the left and right node respectively. The node 2 contains both the nodes (left and right node); therefore, it has two pointers (left and right). The nodes 3, 5 and 6 are the leaf nodes, so all these nodes contain NULL pointer on both left and right parts.</p>
+<h3>Properties of Binary Tree</h3>
+
+    <p>1) At each level of i, the maximum number of nodes is 2i.<br>
+    2) The height of the tree is defined as the longest path from the root node to the leaf node. <br>
+    3) The tree which is shown above has a height equal to 3. Therefore, the maximum number of nodes at height 3 is equal to (1+2+4+8) = 15. In general, the maximum number of nodes possible at height h is (20 + 21 + 22+….2h) = 2h+1 -1.<br>
+    4) The minimum number of nodes possible at height h is equal to h+1.<br>
+   5) If the number of nodes is minimum, then the height of the tree would be maximum. Conversely, if the number of nodes is maximum, then the height of the tree would be minimum.<br>
+
+If there are 'n' number of nodes in the binary tree.<br><br>
+
+The minimum height can be computed as:<br>
+
+As we know that,<br>
+
+n = 2h+1 -1<br>
+
+n+1 = 2h+1<br>
+
+Taking log on both the sides,<br>
+
+log2(n+1) = log2(2h+1)
+<br>
+log2(n+1) = h+1<br>
+
+h = log2(n+1) - 1<br>
+
+The maximum height can be computed as:<br>
+
+As we know that,
+<br>
+n = h+1
+<br>
+h= n-1
+<br>
+h = log2(n+1) - 1
+<br>
+
+The maximum height can be computed as:
+<br>
+
+As we know that,<br>
+
+n = h+1<br>
+
+h= n-1<br>
+</p>
+
+
+<h3>Types of Binary Tree</h3>
+<p>
+There are four types of Binary tree:
+<br>
+    1) Full/ proper/ strict Binary tree<br>
+   2)  Complete Binary tree<br>
+   3)  Perfect Binary tree<br>
+    4) Degenerate Binary tree<br>
+    5) Balanced Binary tree
+<br>
+</p>
+<h3>1. Full/ proper/ strict Binary tree</h3>
+<p>
+
+The full binary tree is also known as a strict binary tree. The tree can only be considered as the full binary tree if each node must contain either 0 or 2 children. The full binary tree can also be defined as the tree in which each node must contain 2 children except the leaf nodes.</p>
+
+<h3>
+
+Properties of Full Binary Tree</h3><p>
+
+   *) The number of leaf nodes is equal to the number of internal nodes plus 1. In the above example, the number of internal nodes is 5; therefore, the number of leaf nodes is equal to 6.<br><br>
+   *) The maximum number of nodes is the same as the number of nodes in the binary tree, i.e., 2h+1 -1.<br><br>
+   *) The minimum number of nodes in the full binary tree is 2*h-1.<br><br>
+   *) The minimum height of the full binary tree is log2(n+1) - 1.<br><br>
+    *) The maximum height of the full binary tree can be computed as:<br><br>
+
+n= 2*h - 1<br>
+<br>
+n+1 = 2*h <br>
+<br>
+h = n+1/2<br>
+</p>
+<h3>Complete Binary Tree</h3>
+<p>
+The complete binary tree is a tree in which all the nodes are completely filled except the last level. In the last level, all the nodes must be as left as possible. In a complete binary tree, the nodes should be added from the left.</p>
+<img src="https://cdn.programiz.com/sites/tutorial2program/files/complete-binary-tree_0.png">
+<p>The above tree is a complete binary tree because all the nodes are completely filled, and all the nodes in the last level are added at the left first</p>
+<h3>Properties of Complete Binary Tree</h3>
+<p>
+  1)  The maximum number of nodes in complete binary tree is 2h+1 - 1.<br>
+  2)  The minimum number of nodes in complete binary tree is 2h.<br>
+  3)  The minimum height of a complete binary tree is log2(n+1) - 1.<br>
+   4)  The maximum height of a complete binary tree is<br>
+    </p>
+    <h3>Perfect Binary Tree</h3>
+<p>
+A tree is a perfect binary tree if all the internal nodes have 2 children, and all the leaf nodes are at the same level.</p>
+<img src="https://cdn.codespeedy.com/wp-content/uploads/2020/06/perfect-binary-tree.png">
+<h3>Binary Tree Implementation</h3>
+<p>
+A Binary tree is implemented with the help of pointers. The first node in the tree is represented by the root pointer. Each node in the tree consists of three parts, i.e., data, left pointer and right pointer. To create a binary tree, we first need to create the node. We will create the node of user-defined as shown below:</p>
+<p  style="background-color:#f3daff;">    struct node  <br>
+    {  <br>
+       int data,  <br>
+       struct node *left, *right; <br> 
+    }  </p><br>
+    
+  <p>  In the above structure, data is the value, left pointer contains the address of the left node, and right pointer contains the address of the right node.</p>
+
+<h3>Binary Tree program in C</h3>
+
+  <p  style="background-color:#f3daff;"> #include<stdio.h>  <br>
+          struct node  <br>
+         {  <br>
+              int data;  <br>
+              struct node *left, *right;  <br>
+          }  <br>
+          void main()  <br>
+        {  <br>
+           struct node *root;<br>  
+           root = create();  <br>
+        }  <br>
+    struct node *create() <br> 
+    {  <br>
+       struct node *temp; <br> 
+       int data;  <br> 
+       temp = (struct node *)malloc(sizeof(struct node));  
+ <br>       printf("Press 0 to exit");  
+      <br>  printf("\nPress 1 for new node");  
+      <br>  printf("Enter your choice : ");  
+      <br>  scanf("%d", &choice);   
+      <br>  if(choice==0)  
+    <br> {  
+    <br> return 0;  
+    <br> }  
+   <br>  else  
+   <br>  {  
+   <br>     printf("Enter the data:");  
+   <br>     scanf("%d", &data);  
+   <br>     temp->data = data;  
+   <br>     printf("Enter the left child of %d", data);  
+   <br>     temp->left = create();  
+   <br>  printf("Enter the right child of %d", data);  
+   <br>  temp->right = create();  
+   <br>  return temp;   
+   <br>  }  
+   <br>  }  
+</p>
+<p>The above code is calling the create() function recursively and creating new node on each recursive call. When all the nodes are created, then it forms a binary tree structure. The process of visiting the nodes is known as tree traversal. There are three types traversals used to visit a node:</p>
+<p>
+   1) Inorder traversal<br>
+    2) Preorder traversal<br>
+    3) Postorder traversal<br>
+</p>
+
+</body>

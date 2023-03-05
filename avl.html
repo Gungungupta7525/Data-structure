@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+<title>AVL TREE </title>
+
+
+
+</head>
+<body>
+<h1>AVL Tree</h1>
+<p>
+AVL Tree is invented by GM Adelson - Velsky and EM Landis in 1962. The tree is named AVL in honour of its inventors.
+<br><br>
+AVL Tree can be defined as height balanced binary search tree in which each node is associated with a balance factor which is calculated by subtracting the height of its right sub-tree from that of its left sub-tree.
+<br><br>
+Tree is said to be balanced if balance factor of each node is in between -1 to 1, otherwise, the tree will be unbalanced and need to be balanced.
+<br><br>
+<center><b style="font-size:25px;color:
+#572735;">Balance Factor (k) = height (left(k)) - height (right(k))</b></center>
+<br> <br>
+If balance factor of any node is 1, it means that the left sub-tree is one level higher than the right sub-tree.
+<br><br>
+If balance factor of any node is 0, it means that the left sub-tree and right sub-tree contain equal height.
+<br><br>
+If balance factor of any node is -1, it means that the left sub-tree is one level lower than the right sub-tree.
+<br><br>
+An AVL tree is given in the following figure. We can see that, balance factor associated with each node is in between -1 and +1
+<br><br>
+</p>
+<center><img  src="https://www.codesdope.com/staticroot/images/ds/avl1.png"   width="450" height="300"></center>
+<h3>Complexity</h3>
+<img src="https://global-uploads.webflow.com/5d0dc87aac109e1ffdbe379c/6135f17b6b064d36f889cd44_time-complexity-of-avl-tree.jpg">
+
+<h3>Operations on AVL tree</h3>
+<p>
+Due to the fact that, AVL tree is also a binary search tree therefore, all the operations are performed in the same way as they are performed in a binary search tree. Searching and traversing do not lead to the violation in property of AVL tree. However, insertion and deletion are the operations which can violate this property and therefore, they need to be revisited.
+</p>
+
+<h3>1) Insertion</h3>
+<p>Insertion in AVL tree is performed in the same way as it is performed in a binary search tree. However, it may lead to violation in the AVL tree property and therefore the tree may need balancing. The tree can be balanced by applying rotations.</p>
+
+<h3>2) Deletion </h3>
+<p>Deletion can also be performed in the same way as it is performed in a binary search tree. Deletion may also disturb the balance of the tree therefore, various types of rotations are used to rebalance the tree.</p>
+
+
+<h3>Why AVL Tree?</h3>
+<p>
+AVL tree controls the height of the binary search tree by not letting it to be skewed. The time taken for all operations in a binary search tree of height h is O(h). However, it can be extended to O(n) if the BST becomes skewed (i.e. worst case). By limiting this height to log n, AVL tree imposes an upper bound on each operation to be O(log n) where n is the number of nodes.
+
+</p>
+<br>
+<h3>AVL Rotations</h3><p>
+We perform rotation in AVL tree only in case if Balance Factor is other than -1, 0, and 1. There are basically four types of rotations which are as follows:
+<br><br>
+    L L rotation: Inserted node is in the left subtree of left subtree of A<br>
+    R R rotation : Inserted node is in the right subtree of right subtree of A<br>
+    L R rotation : Inserted node is in the right subtree of left subtree of A<br>
+    R L rotation : Inserted node is in the left subtree of right subtree of A<br>
+
+</p>
+
+<h3>1. RR Rotation</h3>
+<p>
+When BST becomes unbalanced, due to a node is inserted into the right subtree of the right subtree of A, then we perform RR rotation, RR rotation is an anticlockwise rotation, which is applied on the edge below a node having balance factor -2
+</p>
+<img src="https://www.codingeek.com/wp-content/uploads/2017/04/LL-300x151.png"  width="450" height="300">
+<p>In above example, node A has balance factor -2 because a node C is inserted in the right subtree of A right subtree. We perform the RR rotation on the edge below A.</p>
+<h3>2. LL Rotation</h3>
+<p>
+When BST becomes unbalanced, due to a node is inserted into the left subtree of the left subtree of C, then we perform LL rotation, LL rotation is clockwise rotation, which is applied on the edge below a node having balance factor 2.
+</p>
+<img src="https://www.codingeek.com/wp-content/uploads/2017/04/RR-300x130.png" width="450" height="300">
+
+<h3>3. LR Rotation</h3>
+<p>
+Double rotations are bit tougher than single rotation which has already explained above. LR rotation = RR rotation + LL rotation, i.e., first RR rotation is performed on subtree and then LL rotation is performed on full tree, by full tree we mean the first node from the path of inserted node whose balance factor is other than -1, 0, or 1.</p>
+
+<p>Shown below is the case of LR rotation, here two rotations are performed. First RR and then, LL as follows,<br><br>
+
+    Right rotation is applied at 70, after restructuring, 60 takes the place of 70 and 70 as the right child of 60.<br>
+    Now left rotation is required at the root 50, 60 becomes the root. 50 and 70 become the left and right child respectively.</p>
+
+<img src="https://www.codingeek.com/wp-content/uploads/2017/05/LR.png" width="450" height="300">
+<p>We could also think of the shown way to balance quickly rather than going with two rotations.</p>
+<img src="https://www.codingeek.com/wp-content/uploads/2017/04/RL-roatation.png" width="450" height="300">
+
+<h3>4. RL Rotation</h3>
+<p>
+As already discussed, that double rotations are bit tougher than single rotation which has already explained above. R L rotation = LL rotation + RR rotation, i.e., first LL rotation is performed on subtree and then RR rotation is performed on full tree, by full tree we mean the first node from the path of inserted node whose balance factor is other than -1, 0, or 1.</p><br>
+<p>below is the case of RL rotation, here two rotations are performed. First LL and then, RR as follows,
+<br><br>
+    Left rotation is applied at 30, after restructuring 40 takes the place of 30 and 30 as the left child of 40.<br>
+    Now right rotation is required at the root 50, 40 becomes root. 30 and 50 becomes the left and right child respectively.</p>
+    
+    <img src="https://www.codingeek.com/wp-content/uploads/2017/05/RL.png" width="450" height="300">
+
+
+</body>

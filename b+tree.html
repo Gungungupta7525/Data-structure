@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head><title>B+TREE
+</title></head>
+
+<body>
+<h1>B+ Tree</h1>
+<p>
+B+ Tree is an extension of B Tree which allows efficient insertion, deletion and search operations.
+<br><br>
+In B Tree, Keys and records both can be stored in the internal as well as leaf nodes. Whereas, in B+ tree, records (data) can only be stored on the leaf nodes while internal nodes can only store the key values.
+<br><br>
+The leaf nodes of a B+ tree are linked together in the form of a singly linked lists to make the search queries more efficient.
+<br><br>
+B+ Tree are used to store the large amount of data which can not be stored in the main memory. Due to the fact that, size of main memory is always limited, the internal nodes (keys to access records) of the B+ tree are stored in the main memory whereas, leaf nodes are stored in the secondary memory.
+
+<h3>Advantages of B+ Tree</h3>
+<p>
+    Records can be fetched in equal number of disk accesses.<br>
+    Height of the tree remains balanced and less as compare to B tree.<br>
+    We can access the data stored in a B+ tree sequentially as well as directly.<br>
+    Keys are used for indexing.<br>
+    Faster search queries as the data is stored only on the leaf nodes.<br>
+
+</p>
+<h3>Insertion in B+ Tree</h3>
+<p>
+
+Step 1: Insert the new node as a leaf node<br><br>
+
+Step 2: If the leaf doesn't have required space, split the node and copy the middle node to the next index node.
+<br><br>
+Step 3: If the index node doesn't have required space, split the node and copy the middle element to the next index page.<br>
+Example :
+
+Insert the value 195 into the B+ tree of order 5 shown in the following figure.</p>
+<img src="https://static.javatpoint.com/ds/images/b-plus-tree-insertion.png" width="1000" height="150">
+<p>195 will be inserted in the right sub-tree of 120 after 190. Insert it at the desired position. </p>
+<img src="https://static.javatpoint.com/ds/images/b-plus-tree-insertion2.png" width="1000" height="150">
+<p>The node contains greater than the maximum number of elements i.e. 4, therefore split it and place the median node up to the parent. </p>
+
+<img src="https://static.javatpoint.com/ds/images/b-plus-tree-insertion3.png" width="1000" height="150">
+<p>Now, the index node contains 6 children and 5 keys which violates the B+ tree properties, therefore we need to split it, shown as follows</p>
+<img src="https://static.javatpoint.com/ds/images/b-plus-tree-insertion4.png" width="1000" height="150">
+<h3>
+Deletion in B+ Tree</h3>
+<p>
+Step 1: Delete the key and data from the leaves.
+<br><br>
+Step 2: if the leaf node contains less than minimum number of elements, merge down the node with its sibling and delete the key in between them.
+<br><br>
+Step 3: if the index node contains less than minimum number of elements, merge the node with the sibling and move down the key in between them.
+<br>Example
+<br>
+Delete the key 200 from the B+ Tree shown in the following figure. </p>
+<img src="https://static.javatpoint.com/ds/images/b-plus-tree-deletion.png" width="1000" height="150">
+<p>200 is present in the right sub-tree of 190, after 195. delete it. </p>
+<img src="https://static.javatpoint.com/ds/images/b-plus-tree-deletion2.png" width="1000" height="150">
+<p>Merge the two nodes by using 195, 190, 154 and 129.</p>
+<img src ="https://static.javatpoint.com/ds/images/b-plus-tree-deletion3.png" width="1000" height="150">
+<p>Now, element 120 is the single element present in the node which is violating the B+ Tree properties. Therefore, we need to merge it by using 60, 78, 108 and 120.
+<br><br>
+Now, the height of B+ tree will be decreased by 1. </p>
+<img src="https://static.javatpoint.com/ds/images/b-plus-tree-deletion4.png" width="1000" height="150">
+
+
+
+
+
+
+
+
+
+</body>
