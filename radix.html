@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+<h1>Radix Sort Algorithm</h1>
+<p>
+In this article, we will discuss the Radix sort Algorithm. Radix sort is the linear sorting algorithm that is used for integers. In Radix sort, there is digit by digit sorting is performed that is started from the least significant digit to the most significant digit.
+<br><br>
+The process of radix sort works similar to the sorting of students names, according to the alphabetical order. In this case, there are 26 radix formed due to the 26 alphabets in English. In the first pass, the names of students are grouped according to the ascending order of the first letter of their names. After that, in the second pass, their names are grouped according to the ascending order of the second letter of their name. And the process continues until we find the sorted list.</p>
+<h2>Algorithm</h2>
+<code><pre>
+    radixSort(arr)  
+    max = largest element in the given array  
+    d = number of digits in the largest element (or, max)  
+    Now, create d buckets of size 0 - 9  
+    for i -> 0 to d  
+    sort the array elements using counting sort (or any stable sort) according to the digits at  
+    the ith place 
+    </code></pre>
+    <h2>Working of Radix sort Algorithm</h2>
+   <b> The steps used in the sorting of radix sort are listed as follows -</b>
+<p>
+   1) First, we have to find the largest element (suppose max) from the given array. Suppose 'x' be the number of digits in max. The 'x' is calculated because we need to go through the significant places of all elements.<br><br>
+    2) After that, go through one by one each significant place. Here, we have to use any stable sorting algorithm to sort the digits of each significant place.
+<br><br>
+Now let's see the working of radix sort in detail by using an example. To understand it more clearly, let's take an unsorted array and try to sort it using radix sort. It will make the explanation clearer and easier.</p> 
+<img src="https://static.javatpoint.com/ds/images/radix-sort-algorithm.png">
+<p>In the given array, the largest element is 736 that have 3 digits in it. So, the loop will run up to three times (i.e., to the hundreds place). That means three passes are required to sort the array.
+<br><br>
+Now, first sort the elements on the basis of unit place digits (i.e., x = 0). Here, we are using the counting sort algorithm to sort the elements.</p>
+<p><b>Pass 1:</b>
+
+In the first pass, the list is sorted on the basis of the digits at 0's place.</p>
+<img src="https://static.javatpoint.com/ds/images/radix-sort-algorithm2.png">
+<p>After the first pass, the array elements are -</p>
+<img src="https://static.javatpoint.com/ds/images/radix-sort-algorithm3.png">
+<p><b>Pass 2:</b>
+
+In this pass, the list is sorted on the basis of the next significant digits (i.e., digits at 10th place).</p>
+<img src="https://static.javatpoint.com/ds/images/radix-sort-algorithm4.png">
+<p>After the second pass, the array elements are -</p>
+<img src="https://static.javatpoint.com/ds/images/radix-sort-algorithm5.png">
+<p><b>Pass 3:</b>
+
+In this pass, the list is sorted on the basis of the next significant digits (i.e., digits at 100th place).</p>
+<img src="https://static.javatpoint.com/ds/images/radix-sort-algorithm6.png">
+<p>After the third pass, the array elements are -</p>
+<img src="https://static.javatpoint.com/ds/images/radix-sort-algorithm7.png">
+<p>Now, the array is sorted in ascending order.</p>
+<h3>Radix sort complexity</h3>
+<h2>1. Time Complexity</h2>
+<p>
+    <b>Best Case Complexity -</b> It occurs when there is no sorting required, i.e. the array is already sorted. The best-case time complexity of Radix sort is Ω(n+k).<br><br>
+   <b> Average Case Complexity -</b> It occurs when the array elements are in jumbled order that is not properly ascending and not properly descending. The average case time complexity of Radix sort is θ(nk).<br><br>
+   <b> Worst Case Complexity -</b> It occurs when the array elements are required to be sorted in reverse order. That means suppose you have to sort the array elements in ascending order, but its elements are in descending order. The worst-case time complexity of Radix sort is O(nk).<br><br>
+   Radix sort is a non-comparative sorting algorithm that is better than the comparative sorting algorithms. It has linear time complexity that is better than the comparative algorithms with complexity O(n logn).</p>
+   <h3>Implementation of Radix sort</h3>
+   <b>Program: Write a program to implement Radix sort in Java.</b>
+<code><pre>
+    class RadixSort {  
+      
+    int getMax(int a[], int n) {  
+       int max = a[0];  
+       for(int i = 1; i<n; i++) {  
+          if(a[i] > max)  
+             max = a[i];  
+       }  
+       return max; //maximum element from the array  
+    }  
+      
+    void countingSort(int a[], int n, int place) // function to implement counting   
+      
+    sort  
+    {  
+       int[] output = new int[n+1];  
+     int[] count = new int[10];  
+      
+      // Calculate count of elements  
+      for (int i = 0; i < n; i++)  
+        count[(a[i] / place) % 10]++;  
+          
+      // Calculate cumulative frequency  
+      for (int i = 1; i < 10; i++)  
+        count[i] += count[i - 1];  
+      
+      // Place the elements in sorted order  
+      for (int i = n - 1; i >= 0; i--) {  
+        output[count[(a[i] / place) % 10] - 1] = a[i];  
+        count[(a[i] / place) % 10]--;  
+      }  
+      
+      for (int i = 0; i < n; i++)  
+        a[i] = output[i];  
+    }  
+      
+    // function to implement radix sort  
+    void radixsort(int a[], int n) {  
+       
+      // get maximum element from array  
+      int max = getMax(a, n);  
+      
+      // Apply counting sort to sort elements based on place value  
+      for (int place = 1; max / place > 0; place *= 10)  
+        countingSort(a, n, place);  
+    }  
+      
+    // function to print array elements  
+    void printArray(int a[], int n) {  
+      for (int i = 0; i < n; ++i)   
+        System.out.print(a[i] + " ");  
+    }  
+      
+      public static void main(String args[]) {  
+      int a[] = {151, 259, 360, 91, 115, 706, 34, 858, 2};  
+      int n = a.length;  
+      RadixSort r1 = new RadixSort();  
+      System.out.print("Before sorting array elements are - \n");  
+      r1.printArray(a,n);  
+      r1.radixsort(a, n);  
+      System.out.print("\n\nAfter applying Radix sort, the array elements are -   
+      
+    \n");  
+      r1.printArray(a, n);  
+    }  
+      }  
+
+</code></pre>
+
+</p>
+</body>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+<h1>Insertion Sort Algorithm</h1>
+<p>
+In this article, we will discuss the Insertion sort Algorithm. The working procedure of insertion sort is also simple. This article will be very helpful and interesting to students as they might face insertion sort as a question in their examinations. So, it is important to discuss the topic.
+<br><br>
+Insertion sort works similar to the sorting of playing cards in hands. It is assumed that the first card is already sorted in the card game, and then we select an unsorted card. If the selected unsorted card is greater than the first card, it will be placed at the right side; otherwise, it will be placed at the left side. Similarly, all unsorted cards are taken and put in their exact place.
+<br><br>
+The same approach is applied in insertion sort. The idea behind the insertion sort is that first take one element, iterate it through the sorted array. Although it is simple to use, it is not appropriate for large data sets as the time complexity of insertion sort in the average case and worst case is O(n2), where n is the number of items. Insertion sort is less efficient than the other sorting algorithms like heap sort, quick sort, merge sort, etc.
+<br><br>
+<b>Insertion sort has various advantages such as -</b>
+<br><br>
+1) Simple implementation<br>
+2) Efficient for small data sets<br>
+3) Adaptive, i.e., it is appropriate for data sets that are already substantially sorted<br>
+
+</p>
+
+<h2>Algorithm</h2>
+
+<pre  style="background-color:#f3daff;">
+
+Step 1 - If the element is the first element, assume that it is already sorted. Return 1.
+
+Step2 - Pick the next element, and store it separately in a key.
+
+Step3 - Now, compare the key with all elements in the sorted array.
+
+Step 4 - If the element in the sorted array is smaller than the current element, then move to the next element. Else, shift greater elements in the array towards the right.
+
+Step 5 - Insert the value.
+
+Step 6 - Repeat until the array is sorted.
+</pre>
+<h2>Working of Insertion sort Algorithm</h2>
+<p>
+Now, let's see the working of the insertion sort Algorithm.
+<br><br>
+To understand the working of the insertion sort algorithm, let's take an unsorted array. It will be easier to understand the insertion sort via an example.
+<br><br>
+Let the elements of array are -
+</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort.png">
+<p>Initially, the first two elements are compared in insertion sort.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort2.png">
+<p>Here, 31 is greater than 12. That means both elements are already in ascending order. So, for now, 12 is stored in a sorted sub-arra</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort3.png">
+<p>Now, move to the next two elements and compare them.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort4.png">
+<p>Here, 25 is smaller than 31. So, 31 is not at correct position. Now, swap 31 with 25. Along with swapping, insertion sort will also check it with all elements in the sorted array.
+<br><br>
+For now, the sorted array has only one element, i.e. 12. So, 25 is greater than 12. Hence, the sorted array remains sorted after swapping.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort5.png">
+<p>Now, two elements in the sorted array are 12 and 25. Move forward to the next elements that are 31 and 8.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort6.png">
+<p>Both 31 and 8 are not sorted. So, swap them.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort7.png">
+<p>After swapping, elements 25 and 8 are unsorted.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort8.png">
+<p>So, swap them.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort9.png">
+<p>Now, elements 12 and 8 are unsorted.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort10.png">
+<p>So, swap them too</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort11.png">
+<p>Now, the sorted array has three items that are 8, 12 and 25. Move to the next items that are 31 and 32.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort12.png">
+<p>Hence, they are already sorted. Now, the sorted array includes 8, 12, 25 and 31.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort13.png">
+<p>Move to the next elements that are 32 and 17.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort14.png">
+<p>17 is smaller than 32. So, swap them.</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort15.png">
+<p>Now, swapping makes 25 and 17 unsorted. So, perform swapping again</p>
+<img src="https://static.javatpoint.com/ds/images/insertion-sort17.png">
+<p>Now, the array is completely sorted.</p>
+
+
+
+<h2>Insertion sort complexity</h2>
+<h3>1. Time Complexity</h3>
+<p>Case Time Complexity</p>
+<b>Best Case:-</b>
+	O(n)<br><br>
+<b>Average Case:-</b>
+	O(n2)<br><br>
+<b>Worst Case:-</b>
+	O(n2)
+<br><br>
+    <h3>Best Case Complexity -</h3> It occurs when there is no sorting required, i.e. the array is already sorted. <br>The best-case time complexity of insertion sort is O(n).<br><br>
+    <h3>Average Case Complexity -</h3> It occurs when the array elements are in jumbled order that is not properly ascending and not properly descending. The average case time complexity of insertion sort is O(n2).<br><br>
+   <h3> Worst Case Complexity -</h3> It occurs when the array elements are required to be sorted in reverse order. That means suppose you have to sort the array elements in ascending order, but its elements are in descending order. The worst-case time complexity of insertion sort is O(n2).
+<br><br>
+<h3>2. Space Complexity</h3>
+<b>Space Complexity:-</b>
+
+	O(1)
+
+<br><br>
+   <p> The space complexity of insertion sort is O(1). It is because, in insertion sort, an extra variable is required for swapping.</p>
+
+<h2>Implementation of insertion sort</h2>
+
+<b>Program: Write a program to implement insertion sort in Java.</b>
+<code><pre  style="background-color:#f3daff;">
+    public class Insert  
+    {  
+        void insert(int a[]) /* function to sort an aay with insertion sort */  
+    {  
+        int i, j, temp;  
+        int n = a.length;  
+        for (i = 1; i < n; i++) {  
+            temp = a[i];  
+            j = i - 1;  
+      
+            while(j>=0 && temp <= a[j])  /* Move the elements greater than temp to one position ahead from their current position*/  
+            {    
+                a[j+1] = a[j];     
+                j = j-1;    
+            }    
+            a[j+1] = temp;    
+        }  
+    }  
+    void printArr(int a[]) /* function to print the array */  
+    {  
+        int i;  
+        int n = a.length;  
+        for (i = 0; i < n; i++)  
+        System.out.print(a[i] + " ");  
+    }  
+      
+        public static void main(String[] args) {  
+        int a[] = { 92, 50, 5, 20, 11, 22 };  
+        Insert i1 = new Insert();  
+        System.out.println("\nBefore sorting array elements are - ");  
+        i1.printArr(a);  
+        i1.insert(a);  
+        System.out.println("\n\nAfter sorting array elements are - ");  
+        i1.printArr(a);  
+        System.out.println();  
+        }  
+    }  </code></pre>
+
+</body>
