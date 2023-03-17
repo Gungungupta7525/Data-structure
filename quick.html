@@ -18,11 +18,91 @@
    background-color: black;
   }
 
-</style>   
-<div class="dropdown-content">
+</style>
+<html>
+  
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: green;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+ 
+  <div class="dropdown">
+    <button class="dropbtn">Topics
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
       <a href="1ds.html">Advantages & operation of DS</a>
       <a href="2ds.html">Data Structure & Algo</a>
-     <a href="asymptotic.html">Asymptotic Analysis</a>
+      <a href="asymptotic.html">Asymptoyic Analysis</a>
       <a href="array.html">Array</a>
        <a href="pointer.html">Pointer</a>
       <a href="ll.html">Linked List</a>
@@ -36,14 +116,20 @@
        <a href="Btree.html">B Tree</a>
         <a href="b+tree.html">B+ Tree</a>
         <a href="graph.html">Graphs</a>
-          <a href="bubblesort.html">Bubble Sort Algo</a>
-          <a href="insert.html">Insertion Sort Algo</a>
-         <a href="selection.html">Selection Sort</a>
-          <a href="quick.html">Quick Sort Algo</a>
-          <a href="heap.html">Heap Sort Algo</a>
-          <a href="radix.html">Radix Sort Algo</a>
-          
     </div>
+  </div> 
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
 <h1>Quick Sort Algorithm</h1>
 <p>
 In this article, we will discuss the Quicksort Algorithm. The working procedure of Quicksort is also simple. This article will be very helpful and interesting to students as they might face quicksort as a question in their examinations. So, it is important to discuss the topic.
